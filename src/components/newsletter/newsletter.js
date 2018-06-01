@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import * as actions from '../../actions';
-
+import NewsletterArchive from './newsletter_archive';
 class Newsletter extends Component {
 
     componentDidMount() {
@@ -10,7 +10,15 @@ class Newsletter extends Component {
     render() {
         return (
             <div>
-                newsletter Component
+                <div>
+                    <div>
+                        02 JAN 18
+                    </div>
+                        <NewsletterArchive/>
+                </div>
+                <div>
+                    main content. latest newsletter
+                </div>
             </div>
         )
     }
