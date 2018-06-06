@@ -9,7 +9,8 @@ export function signinUser({email, password}) {
     return function(dispatch) {
         axios.post(`${ROOT_URL}/signin`, {email, password} )
         .then(response => {
-            localStorage.setItem('token', response.data.token);
+            
+            localStorage.setItem('token', response.data.token)
 
             history.push('./newsletter');
         })

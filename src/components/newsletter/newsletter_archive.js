@@ -1,13 +1,43 @@
 import React, { Component } from 'react';
 
-class NewsletterArchive extends Component {
-    render() {
+class NewsletterArchive extends Component {   
+
+        constructor(props) {
+            super(props) 
+
+                this.items = []
+            }
+
+            renderNewsletterArchiveItem = function(item, index) {       
         return (
+            <li key={index}>
+                {item.title}
+                <p>9/15/2030</p>
+            </li>
+        )
+    }
+
+    renderNewsletterArchiveList = function() {
+        if(this.props.archive) {
+            this.props.archive.map((item, index) => {
+                this.items.push(this.renderNewsletterArchiveItem(item, index))
+            })
+        }
+    }
+    render() {        
+        this.renderNewsletterArchiveList()
+        return (
+            <div>
+                <div>
+                    Archive
+                </div>
             <ul>
-                <li>list item 0</li>
-                <li>list item 1</li>
-                <li>list item 2</li>
+                {
+                    this.items
+                }
+                
             </ul>
+            </div>
         )
     }
 }
