@@ -28,8 +28,7 @@ class Newsletter extends Component {
     }
 }
 
-function mapStateToProps(state) {
-    
+function mapStateToProps(state) {    
     return { archive: state.newsletter.archive,
             latestItem: state.newsletter.latestItem
     }
