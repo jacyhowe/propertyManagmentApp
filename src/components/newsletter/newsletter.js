@@ -1,7 +1,10 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+
 import * as actions from '../../actions';
+
 import NewsletterArchive from './newsletter_archive';
+import NewsletterContent from './newsletterContent';
 
 class Newsletter extends Component {
 
@@ -18,7 +21,7 @@ class Newsletter extends Component {
                         <NewsletterArchive archive={this.props.archive}/>                       
                 </div>
                 <div className="col-md-9">
-                    main content. latest newsletter
+                    <NewsletterContent latestItem={this.props.latestItem}/>
                 </div>
             </div>
         )
@@ -26,7 +29,10 @@ class Newsletter extends Component {
 }
 
 function mapStateToProps(state) {
-    return { archive: state.newsletter.archive }
+    
+    return { archive: state.newsletter.archive,
+            latestItem: state.newsletter.latestItem
+    }
 }
 
 export default connect(mapStateToProps, actions)(Newsletter);
