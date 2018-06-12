@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-
+import { Link } from 'react-router-dom';
 class NewsletterArchive extends Component {   
 
         constructor(props) {
@@ -11,7 +11,7 @@ class NewsletterArchive extends Component {
             renderNewsletterArchiveItem = function(item, index) {       
         return (
             <li key={index}>
-                {item.title}
+                <Link to={`/newsletter/detail/${item._id}`}>{item.title}</Link>
                 <p>9/15/2030</p>
             </li>
         )

@@ -27,9 +27,9 @@ function main() {
         <Header>
           <Switch>
             <Route path="/signin" component={Signin}></Route>
-            <Route path="/signup" component={Signup}></Route>            
-            <Route path="/newsletter/detail/:id" component={NewsletterDetail}></Route>
-            <Route path="/newsletter" component={Newsletter}></Route>
+            <Route path="/signup" component={Signup}></Route> 
+            <Route path="/newsletter" exact component={Newsletter}></Route>           
+            <Route path="/newsletter/detail/:id" component={NewsletterDetail}></Route>            
           </Switch>
         </Header>
       </Router>
