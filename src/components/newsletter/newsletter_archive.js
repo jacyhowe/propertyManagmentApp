@@ -5,8 +5,8 @@ class NewsletterArchive extends Component {
         constructor(props) {
             super(props) 
 
-                this.items = []
-            }
+            this.items = []
+        }
 
             renderNewsletterArchiveItem = function(item, index) {       
         return (
