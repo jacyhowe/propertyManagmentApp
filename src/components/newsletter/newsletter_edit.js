@@ -1,13 +1,34 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
+import { Field, reduxForm } from 'redux-form';
+
 
 class EditNewsletter extends Component {
+    renderInput(field) {
+        return <input className="form-control" {...field.input} type="field.type"/>
+    }
+
+    handleFormSubmit({email, password}) {
+    
+    }
+
     render() {
-        return (
-            <form>
-                Form for edit
-            </form>
+        const { handleSubmit } = this.props;
+
+      return (
+            <form onSubmit={handleSubmit(this.handleFormSubmit.bind(this))}>             
+                <label htmlFor="title">Title</label>
+                <Field name="title" component={this.renderInput} type="text"/>
+                <label htmlFor="body">Body</label>
+                <Field name="body" component={this.renderInput} type="text"/>
+
+                <Link to="/newsletter"><div>Cancel</div></Link>
+                <button action="submit" className="btn btn primary">Save</button>
+            </form>       
+       
         )
     }
 }
 
-export default EditNewsletter
+EditNewsletter = reduxForm({form: "editNewsletter"})(EditNewsletter)
+export default EditNewsletter;
