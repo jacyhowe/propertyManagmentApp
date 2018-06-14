@@ -28,7 +28,7 @@ class NewsletterDetail extends Component {
     render() {
         return (
             <div className="row">
-                <div className="col-md-3" row>
+                <div className="col-md-3">
                     <div style={{width: '200px', height: '200px', backgroundColor: 'skyblue'}}>
                         02 JAN 18
                     </div>                                        
