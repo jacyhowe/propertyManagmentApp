@@ -25,15 +25,13 @@ function main() {
   ReactDOM.render(
     <Provider store={createStoreWithMiddleware(reducers)}>
       <Router history={history}>
-        <Header>
+         <Header>
           <Switch>
             <Route path="/signin" component={Signin}></Route>
             <Route path="/signup" component={Signup}></Route> 
-
             <Route path="/newsletter" exact component={Newsletter}></Route>           
             <Route path="/newsletter/detail/:_id" component={NewsletterDetail}></Route>   
-            <Route path="/newsletter/edit/:_id" component={EditNewsletter}></Route>     
-                 
+            <Route path="/newsletter/edit/:_id" component={EditNewsletter}></Route>               
           </Switch>
         </Header>
       </Router>

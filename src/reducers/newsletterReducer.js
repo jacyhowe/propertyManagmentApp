@@ -1,6 +1,6 @@
 import { 
     FETCH_NEWSLETTER_ARCHIVE,
-    FETCH_NEWSLETTER_ID
+    FETCH_NEWSLETTER_BY_ID
  } from "../actions/types";
 
 
@@ -16,24 +16,24 @@ export default function(state = INITIAL_STATE, action) {
             const latestItem = action.payload[0];
             const archive = action.payload;
             archive.shift();
-
             return { 
                 ...state, 
                 archive,
                 latestItem
             }
-
-            case FETCH_NEWSLETTER_ID:  
-                const fetchedItem = state.archive.find(newsletterItem => {
-                        if(newsletterItem._id == action.payload) {
-                            return newsletterItem
-                        }
-                    })
-                    return {
-                        ...state,
-                        fetchedItem
+        case FETCH_NEWSLETTER_BY_ID:  
+            if(state.latestItem._id == action.payload) {
+                return { ...state, fetchedItem: state.latestItem }
+            }
+            const fetchedItem = state.archive.find( newsletterItem => {
+                    if(newsletterItem._id == action.payload) {
+                        return newsletterItem
                     }
-
+                })
+                return {
+                    ...state,
+                    fetchedItem
+                }
         default: return state;
     }
 }

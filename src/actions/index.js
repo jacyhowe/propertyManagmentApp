@@ -1,6 +1,6 @@
 import { 
     FETCH_NEWSLETTER_ARCHIVE,
-    FETCH_NEWSLETTER_ID
+    FETCH_NEWSLETTER_BY_ID
 } from './types';
 
 import axios from 'axios';
@@ -32,15 +32,27 @@ export function fetchNewsletterArchive(token) {
                 dispatch({
                     type: FETCH_NEWSLETTER_ARCHIVE,
                     payload: response.data
-                    })
-                })
+             })
+        })
     }
 }
+
+export function saveNewsletterEdit({title, body}, _id) {
+    return function(dispatch) {
+        axios.get(`${ROOT_URL}/newsletterArchive/edit/${_id}`, {title, body}, {
+             headers: { authorization: localStorage.getItem('token') }
+        })
+             .then(response => {
+                 console.log(response.data);
+        })
+    }
+ }
+ 
 
 export function fetchNewsletterById(_id) {
     return (
         {
-            type: FETCH_NEWSLETTER_ID,
+            type: FETCH_NEWSLETTER_BY_ID,
             payload: _id
         }
     )

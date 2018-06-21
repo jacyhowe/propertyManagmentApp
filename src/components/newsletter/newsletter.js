@@ -14,7 +14,7 @@ class Newsletter extends Component {
     render() {
         return (
             <div className="row">
-                <div className="col-md-3" row>
+                <div className="col-md-3" row="true">
                     <div style={{width: '200px', height: '200px', backgroundColor: 'skyblue'}}>
                         02 JAN 18
                     </div>                   
@@ -28,7 +28,9 @@ class Newsletter extends Component {
     }
 }
 
-function mapStateToProps(state) {    
+function mapStateToProps(state) { 
+    console.log(state.newsletter.latestItem);
+    
     return { archive: state.newsletter.archive,
             latestItem: state.newsletter.latestItem
     }
